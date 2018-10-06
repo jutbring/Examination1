@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shipscript : MonoBehaviour
+public class shipScript : MonoBehaviour
 {
     public float shipSpeed;
     public float shipTurn;
@@ -33,19 +33,14 @@ public class shipscript : MonoBehaviour
             transform.Rotate(0, 0, -shipTurn * Time.deltaTime);
             // gör skeppet blått...
             rend.material.color = rightColor;
-        }
-        else
-        {
-            // ...eller inte
-            rend.material.color = shipDefaultColor;
-        }
 
-        if (Input.GetKey(KeyCode.A))
+        }
+        else if (Input.GetKey(KeyCode.A))
         {
-            // gör skeppet grönt...
-            rend.material.color = leftColor;
             // roterar z-axeln motsols
             transform.Rotate(0, 0, shipTurn / 2 * Time.deltaTime);
+            // gör skeppet grönt...
+            rend.material.color = leftColor;
         }
         else
         {
@@ -71,7 +66,7 @@ public class shipscript : MonoBehaviour
             // renderar
             rend.material.color = shipDefaultColor;
         }
-        // adderar 1 varje sekund (med decimaler)
+        // adderar 1 varje sekund 
         timer += 1 * Time.deltaTime;
 
         // jämför tiden som datorn vet med den vi ser
