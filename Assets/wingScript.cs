@@ -10,9 +10,12 @@ public class wingScript : MonoBehaviour
     public float pulseColorGreen;
     public float pulseColorBlue;
     public Color pulseColor;
+    
     // Use this for initialization
     void Start()
     {
+ 
+        
         // värden
         rend = GetComponent<Renderer>();
         // 1.2 för mer tid av fullt ljus

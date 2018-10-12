@@ -7,6 +7,7 @@ public class shipScript : MonoBehaviour
     // ALLA SHIPSCRIPS OCH WINGSCRIPS ÄR IDENTISKA
 
     // floats, färger och ränderers
+
     public float shipSpeed;
     public float shipTurn;
     public float skillBased;
@@ -21,7 +22,7 @@ public class shipScript : MonoBehaviour
     void Start()
     {
         // värden (shipSpeed = randomRange för C-uppgiften)
-        shipSpeed = Random.Range(6, 14);
+        shipSpeed = Random.Range(4, 12);
         // shipturn ocksp random bara för att
         shipTurn = Random.Range(250, 450);
         // vanliga färgem
@@ -38,10 +39,11 @@ public class shipScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ingorera
-        //shipSpeed += 1 * Time.deltaTime;
-        //shipTurn += 20 * Time.deltaTime;
-
+        // skeppet blir snabbare ju mer tid som går
+        shipSpeed += 0.2f * Time.deltaTime;
+        shipTurn += 10 * Time.deltaTime;
+        // om värdet är 1
+        // annars
         // så länge man håller in D
         if (Input.GetKey(KeyCode.D))
         {
@@ -64,7 +66,7 @@ public class shipScript : MonoBehaviour
             // ...eller bara den vanliga färgen
             rend.material.color = shipDefaultColor;
         }
-        // så länge man håller in S
+        // så länge man håller in S...
         if (Input.GetKey(KeyCode.S))
         {
             // kör skeppet hälften av normal hastighet...
@@ -110,5 +112,6 @@ public class shipScript : MonoBehaviour
         // OBS: detta ^ kan skapa spelförstörande buggar
         // sätter positionen 
         transform.position = newPosition;
+
     }
 }
